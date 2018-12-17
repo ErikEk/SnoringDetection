@@ -1,0 +1,6 @@
+/audioset_v1_embeddings
+/venv
+
+kaggle_solution.csv
+predictions.csv
+__pycache__/
