@@ -4,3 +4,4 @@
 kaggle_solution.csv
 predictions.csv
 __pycache__/
+*.pyc

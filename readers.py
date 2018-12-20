@@ -215,7 +215,7 @@ class YT8MFrameFeatureReader(BaseReader):
 
     contexts, features = tf.parse_single_sequence_example(
         serialized_example,
-        context_features={"id": tf.FixedLenFeature(
+        context_features={"video_id": tf.FixedLenFeature(
             [], tf.string),
                           "labels": tf.VarLenFeature(tf.int64)},
         sequence_features={
@@ -261,7 +261,7 @@ class YT8MFrameFeatureReader(BaseReader):
 
     # convert to batch format.
     # TODO: Do proper batch reads to remove the IO bottleneck.
-    batch_video_ids = tf.expand_dims(contexts["id"], 0)
+    batch_video_ids = tf.expand_dims(contexts["video_id"], 0)
     batch_video_matrix = tf.expand_dims(video_matrix, 0)
     batch_labels = tf.expand_dims(labels, 0)
     batch_frames = tf.expand_dims(num_frames, 0)

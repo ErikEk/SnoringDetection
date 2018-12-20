@@ -157,6 +157,7 @@ def get_input_data_tensors(reader,
     IOError: If no files matching the given pattern were found.
   """
   logging.info("Using batch size of " + str(batch_size) + " for training.")
+  print("asdasdas"+data_pattern)
   with tf.name_scope("train_input"):
     files = gfile.Glob(data_pattern)
     if not files:
@@ -570,7 +571,7 @@ class Trainer(object):
 
     label_loss_fn = find_class_by_name(FLAGS.label_loss, [losses])()
     optimizer_class = find_class_by_name(FLAGS.optimizer, [tf.train])
-
+    print("asdasdasasddasasd" +FLAGS.train_data_pattern)
     build_graph(reader=reader,
                  model=model,
                  optimizer_class=optimizer_class,
